@@ -30,20 +30,33 @@ Open each chat in a different browser or use Incognito/Private windows in the sa
 
 Auto update state when user connects or disconnects.
 
-🟢 Online – User is active
+    🟢 Online – User is active
 
-⚪ Offline – User is disconnected
+    ⚪ Offline – User is disconnected
 
 Updates in real-time automatically
 
 2. Offline Messages
 
-✅ All messages are saved in the database
+    ✅ All messages are saved in the database
 
-✅ If a user is offline and you send a message, it will be delivered immediately when they come back online
+    ✅ If a user is offline and you send a message, it will be delivered immediately when they come back online
 
 3. Typing Indicator
 
-✏️ Shows "the other user is typing..." when someone starts writing
+    ✏️ Shows "the other user is typing..." when someone starts writing
 
-⏱️ Automatically disappears 2 seconds after typing stops
+    ⏱️ Automatically disappears 2 seconds after typing stops
+
+## Applied concepts:
+
+**Heartbeat:**
+    ending periodic signals between the client and the server to verify the continuity of the connection and the validity of the user's status.
+
+**Fault Tolerance:**
+    Undelivered messages are temporarily stored
+
+**Communication protocol**: WebSockets
+
+
+
