@@ -1,10 +1,10 @@
-# peer_chat
+# Peer Chat Application
 
-to start :
-npm i
+## Requirements
+- Docker Desktop installed
 
-```js
-install docker  
+## Quick Start
 
-docker start chat-postgres
-```
+1. **Clone and run:**
+```bash
+docker-compose up -d

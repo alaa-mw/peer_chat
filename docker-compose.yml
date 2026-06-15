@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: peer-chat-postgres
+    environment:
+      POSTGRES_USER: chatuser
+      POSTGRES_PASSWORD: chatpass123
+      POSTGRES_DB: chatdb
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - peer-chat-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chatuser -d chatdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: peer-chat-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_USER: chatuser
+      DB_PASSWORD: chatpass123
+      DB_HOST: postgres  # اسم الخدمة، ليس localhost
+      DB_PORT: 5432
+      DB_NAME: chatdb
+    networks:
+      - peer-chat-network
+    volumes:
+      - ./:/app
+      - /app/node_modules
+
+volumes:
+  postgres_data:
+
+networks:
+  peer-chat-network:
+    driver: bridge

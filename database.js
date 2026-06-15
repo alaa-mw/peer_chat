@@ -6,8 +6,8 @@ require('dotenv').config();
 const pool = new Pool({
   user: process.env.DB_USER || 'chatuser',
   password: process.env.DB_PASSWORD || 'chatpass123',
-  host: process.env.DB_HOST || 'localhost',
-  port: process.env.DB_PORT || 5433,
+  host: process.env.DB_HOST || 'postgres',
+  port: process.env.DB_PORT || 5432,
   database: process.env.DB_NAME || 'chatdb',
 });
 
