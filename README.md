@@ -8,3 +8,9 @@
 1. **Clone and run:**
 ```bash
 docker-compose up -d
+```
+
+2. **Open Browser:**
+```bash
+http://localhost:3000
+```
