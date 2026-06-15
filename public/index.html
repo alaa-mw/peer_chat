@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeerChat - Choose User</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 50px; }
+        button { padding: 10px 20px; margin: 10px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>📡 PeerChat</h1>
+    <p>Select your identity to start chatting:</p>
+    <button onclick="login('user1')">Login as User 1</button>
+    <button onclick="login('user2')">Login as User 2</button>
+
+    <script>
+        function login(userId) {
+            localStorage.setItem('userId', userId);
+            window.location.href = '/chat.html';
+        }
+    </script>
+</body>
+</html>
